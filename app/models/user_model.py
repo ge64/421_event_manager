@@ -33,6 +33,8 @@ class User(Base):
         role (UserRole): Role of the user within the application.
         is_professional (bool): Flag indicating professional status.
         professional_status_updated_at (datetime): Timestamp of last professional status update.
+        linkedin_url (str): Optional LinkedIn profile link of the user. 
+        github_url (str): Optional GitHub profile link of the user.
         last_login_at (datetime): Timestamp of the last login.
         failed_login_attempts (int): Count of failed login attempts.
         is_locked (bool): Flag indicating if the account is locked.
@@ -60,6 +62,8 @@ class User(Base):
     role: Mapped[UserRole] = Column(SQLAlchemyEnum(UserRole), default=UserRole.ANONYMOUS, nullable=False)
     is_professional: Mapped[bool] = Column(Boolean, default=False)
     professional_status_updated_at: Mapped[datetime] = Column(DateTime(timezone=True), nullable=True)
+    linkedin_url: Mapped[str] = Column(String(255), nullable=True)
+    github_url: Mapped[str] = Column(String(255), nullable=True)
     last_login_at: Mapped[datetime] = Column(DateTime(timezone=True), nullable=True)
     failed_login_attempts: Mapped[int] = Column(Integer, default=0)
     is_locked: Mapped[bool] = Column(Boolean, default=False)
