@@ -64,23 +64,39 @@ async def test_update_professional_status(db_session, user):
     assert updated_user.professional_status_updated_at is not None
 
 @pytest.mark.asyncio
-async def test_user_profile_links(db_session, user):
-    """Test that the user's LinkedIn and GitHub URLs are correctly set and stored in the database."""
-    # Setup: create a user with specific LinkedIn and GitHub URLs
+async def test_user_linkedin_url(db_session, user):
+    """Test that the user's LinkedIn URL is correctly set and stored in the database."""
+    # Setup: create a user with a specific LinkedIn URL
     user.linkedin_url = "https://www.linkedin.com/in/example"
-    user.github_url = "https://github.com/exampleUser"
     db_session.add(user)
     await db_session.commit()
 
-    # Test: fetch the user from the database and check URLs
+    # Test: fetch the user from the database and check LinkedIn URL
     result = await db_session.execute(select(User).filter_by(email=user.email))
     stored_user = result.scalars().first()
     
     assert stored_user is not None
     assert stored_user.linkedin_url == "https://www.linkedin.com/in/example"
-    assert stored_user.github_url == "https://github.com/exampleUser"
 
     # Cleanup: Remove the user from the database
     db_session.delete(user)
     await db_session.commit()
 
+@pytest.mark.asyncio
+async def test_user_github_url(db_session, user):
+    """Test that the user's GitHub URL is correctly set and stored in the database."""
+    # Setup: create a user with a specific GitHub URL
+    user.github_url = "https://github.com/exampleUser"
+    db_session.add(user)
+    await db_session.commit()
+
+    # Test: fetch the user from the database and check GitHub URL
+    result = await db_session.execute(select(User).filter_by(email=user.email))
+    stored_user = result.scalars().first()
+    
+    assert stored_user is not None
+    assert stored_user.github_url == "https://github.com/exampleUser"
+
+    # Cleanup: Remove the user from the database
+    db_session.delete(user)
+    await db_session.commit()
