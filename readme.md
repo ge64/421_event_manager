@@ -1,3 +1,21 @@
+# Homework Assignment 10
+Introduction to API with QR Code API - Fix the broken code and learn to run the project.
+
+## Links to Issues
+* [LinkedIn and GitHub profile links share a test](https://github.com/ge64/421_event_manager/issues/1)
+* [nope]()
+* [none here]()
+* []()
+* []()
+
+
+## Reflective summary
+Honestly I am still trying to break this thing. 
+You know that Nation Park story where they had trouble creating a bear-proof trashcan that visitors could figure out because there was considerable overlap betweem the dumbest visitors and the smartest bears?
+I don't know where I'm even at on that scale because I don't know how to break this.
+
+<br><br>
+
 # Event Manager Company: Software QA Analyst/Developer Onboarding Assignment
 
 Welcome to the Event Manager Company! As a newly hired Software QA Analyst/Developer and a graduate student in software engineering, you are embarking on an exciting journey to contribute to our project aimed at developing a secure, robust REST API that supports JWT token-based OAuth2 authentication. This API serves as the backbone of our user management system and will eventually expand to include features for event management and registration.
